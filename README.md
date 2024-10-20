@@ -195,7 +195,7 @@ In order to launch the project, you should add the code repository:
     
      rosservice call /pose_ik "part_pose: {position: {x: 5.0, y: 4.0, z: 3.0 }, orientation: {x: 0.0, y: 0.0, z: 0.0, w: 1.0}}" 
 
-  ```
+```
 
 - What will you see in the service ouput:
 
