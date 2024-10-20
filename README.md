@@ -180,7 +180,7 @@ In order to launch the project, you should add the code repository:
     [ INFO] [1729448362.219768231]: Joint angle [6]: 1.9049 
       
   ```
-    - In the service side, you will see the following output:
+- In the service side, you will see the following output:
   
   ```
   
