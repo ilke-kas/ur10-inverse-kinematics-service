@@ -92,7 +92,7 @@ In order to launch the project, you should add the code repository:
   - Clone this repository
    ```
   
-     git clone 
+     git clone https://github.com/cwru-courses/ecse473_f24_ixk238_ik_service.git 
   
   ```
 
