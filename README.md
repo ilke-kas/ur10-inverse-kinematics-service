@@ -178,12 +178,9 @@ In order to launch the project, you should add the code repository:
     [ INFO] [1729448362.219758971]: Joint angle [4]: 2.7401 
     [ INFO] [1729448362.219763608]: Joint angle [5]: 4.7124 
     [ INFO] [1729448362.219768231]: Joint angle [6]: 1.9049 
-      
   ```
 - In the service side, you will see the following output:
-  
   ```
-  
       [ INFO] [1729448362.218754408]: pose_ik service was called.
       [ INFO] [1729448362.218798789]: Number of solutions inverse kinematics solutions: 8
   
