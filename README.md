@@ -115,7 +115,9 @@ In order to launch the project, you should add the code repository:
      rosrun ik_service ik_client_node 
   
   ```
+  
   - When you run the client code, you should see the following output for the service side:
+    
  
     ```
   
@@ -179,6 +181,7 @@ In order to launch the project, you should add the code repository:
       
   ```
   - In the service side, you will see the following output:
+  
     ```
       [ INFO] [1729448362.218754408]: pose_ik service was called.
       [ INFO] [1729448362.218798789]: Number of solutions inverse kinematics solutions: 8
@@ -186,7 +189,9 @@ In order to launch the project, you should add the code repository:
 
   
 ### Manually call the service and find no solution
+
   - Run the following command to see what will happen if the inverse kinematics could not find any solution:
+    
     ```
      rosservice call /pose_ik "part_pose:
   position:
@@ -200,11 +205,15 @@ In order to launch the project, you should add the code repository:
     w: 1.0" 
 
   ```
+
 - What will you see in the service ouput:
+
     ```
     [ERROR] [1729448658.172994442]: Inverse Kinematics algorithm could not find a solution for Target position: (5.00, 4.00, 3.00)
   ```
+
 - What will you see in the output after rosservice call command:
+  
     ```
     ERROR: service [/pose_ik] responded with an error: b''
   ```
@@ -223,13 +232,17 @@ In order to launch the project, you should add the code repository:
     w: 1.0" 
 
   ```
+
 - What will you see in the service ouput:
+
     ```
     [ INFO] [1729448704.919337545]: pose_ik service was called.
     [ INFO] [1729448704.919420441]: Number of solutions inverse kinematics solutions: 4
 
   ```
+
 - What will you see in the output after rosservice call command:
+  
     ```
         num_sols: 4
         joint_solutions: 
