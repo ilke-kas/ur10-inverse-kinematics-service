@@ -195,17 +195,9 @@ In order to launch the project, you should add the code repository:
 
   - Run the following command to see what will happen if the inverse kinematics could not find any solution:
     
-    ```
-     rosservice call /pose_ik "part_pose:
-        position:
-          x: 5.0
-          y: 4.0
-          z: 3.0
-        orientation:
-          x: 0.0
-          y: 0.0
-          z: 0.0
-          w: 1.0" 
+```
+    
+     rosservice call /pose_ik "part_pose: {position: {x: 5.0, y: 4.0, z: 3.0 }, orientation: {x: 0.0, y: 0.0, z: 0.0, w: 1.0}}" 
 
   ```
 
@@ -221,25 +213,18 @@ In order to launch the project, you should add the code repository:
 
   ```
   
-    ERROR: service [/pose_ik] responded with an error: b''
+    ERROR: service [/pose_ik] responded with an error: b
   
   ```
+
 ### Manually call the service and find some solution
+
   - Run the following command to see what will happen if the inverse kinematics find some solution:
     
-    ```
-  rosservice call /pose_ik "part_pose:
-      position:
-        x: 0.5
-        y: 0.5
-        z: 1.0
-      orientation:
-        x: 0.0
-        y: 0.0
-        z: 0.0
-        w: 1.0" 
+```
+  rosservice call /pose_ik "part_pose: {position: {x: 0.5, y: 0.5, z: 1.0 }, orientation: {x: 0.0, y: 0.0, z: 0.0, w: 1.0}}" 
 
-  ```
+```
 
 - What will you see in the service ouput:
 
