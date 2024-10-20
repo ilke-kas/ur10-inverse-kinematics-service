@@ -184,7 +184,76 @@ In order to launch the project, you should add the code repository:
       [ INFO] [1729448362.218798789]: Number of solutions inverse kinematics solutions: 8
   ```
 
-      
+  
+### Manually call the service and find no solution
+  - Run the following command to see what will happen if the inverse kinematics could not find any solution:
+    ```
+     rosservice call /pose_ik "part_pose:
+  position:
+    x: 5.0
+    y: 4.0
+    z: 3.0
+  orientation:
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0" 
+
+  ```
+- What will you see in the service ouput:
+    ```
+    [ERROR] [1729448658.172994442]: Inverse Kinematics algorithm could not find a solution for Target position: (5.00, 4.00, 3.00)
+  ```
+- What will you see in the output after rosservice call command:
+    ```
+    ERROR: service [/pose_ik] responded with an error: b''
+  ```
+### Manually call the service and find some solution
+  - Run the following command to see what will happen if the inverse kinematics find some solution:
+    ```
+  rosservice call /pose_ik "part_pose:
+  position:
+    x: 0.5
+    y: 0.5
+    z: 1.0
+  orientation:
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0" 
+
+  ```
+- What will you see in the service ouput:
+    ```
+    [ INFO] [1729448704.919337545]: pose_ik service was called.
+    [ INFO] [1729448704.919420441]: Number of solutions inverse kinematics solutions: 4
+
+  ```
+- What will you see in the output after rosservice call command:
+    ```
+        num_sols: 4
+        joint_solutions: 
+      - 
+        joint_angles: [0.5514215705384928, 4.932377054147698, 0.6531741153528371, 5.410023118063741, 4.712388980384689, 5.263810550923182]
+      - 
+        joint_angles: [0.5514215705384928, 5.562843333299117, 5.630011191826749, 6.085905069617996, 4.712388980384689, 5.263810550923182]
+      - 
+        joint_angles: [4.160967409846197, 3.861934627470262, 0.6531741153528371, 3.3388728911513836, 1.5707963267948954, 5.731763736641094]
+      - 
+        joint_angles: [4.160967409846197, 4.492400906621682, 5.630011191826749, 4.0147548427056385, 1.5707963267948954, 5.731763736641094]
+      - 
+        joint_angles: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+      - 
+        joint_angles: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+      - 
+        joint_angles: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+      - 
+        joint_angles: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+
+    
+  ```
+
+
 ## Authors
 
   - **Ilke Kas** - *PhD at ECSE* -
