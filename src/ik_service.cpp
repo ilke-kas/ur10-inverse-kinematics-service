@@ -1,6 +1,7 @@
 #include "ros/ros.h"
 #include "ik_service/PoseIK.h"
 #include "ur_kinematics/ur_kin.h"
+#include "tf2_geometry_msgs/tf2_geometry_msgs.h"
 
 bool pose_ik(ik_service::PoseIK::Request  &req,
         ik_service::PoseIK::Response &res)
@@ -8,12 +9,25 @@ bool pose_ik(ik_service::PoseIK::Request  &req,
  //Set the req.num_sols equal to -1 for testing purposes.
  // res.num_sols = -1;
   ROS_INFO("pose_ik service was called.");
+
+  // Get the part pose in tf2:Tramsform type upon which math may be performed.
+  tf2::Transform t1;
+
+  // This takes the geometry_msgs/Pose structure and puts it in the tf2:Transform structure.
+  tf2::fromMsg(req.part_pose, t1);
+
+  // This is the rotation to orient the vacuum gripper in the desired reference pose.
+  tf2::Quaternion q_rot(-0.5, 0.5, 0.5, 0.5);
+
+  // The order of multiplication matters for quaternions.
+  t1.setRotation(t1.getRotation() * q_rot);
   
  // Second, 2D way to define the same T Matrix
-  double T[4][4] = {{0.0, -1.0, 0.0, req.part_pose.position.x}, \
-  		    {0.0, 0.0, 1.0,  req.part_pose.position.y}, \
-		    {-1.0, 0.0, 0.0 ,  req.part_pose.position.z}, \
+  double T[4][4] = {{t1.getBasis()[0][0], t1.getBasis()[0][1], t1.getBasis()[0][2], t1.getOrigin()[0]}, \
+  		    {t1.getBasis()[1][0], t1.getBasis()[1][1], t1.getBasis()[1][2], t1.getOrigin()[1]}, \
+		    {t1.getBasis()[2][0], t1.getBasis()[2][1], t1.getBasis()[2][2], t1.getOrigin()[2]}, \
 		    {0.0, 0.0, 0.0, 1.0}};
+        
  // Variable to receive the number of solutions returned
  int num_sol;
  // Allocate space for up to eight solutions of six joint angles, make it double

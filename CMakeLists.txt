@@ -14,6 +14,7 @@ find_package(catkin REQUIRED COMPONENTS
   rospy
   std_msgs
   ur_kinematics
+  tf2_geometry_msgs
 )
 
 ## System dependencies are found with CMake's conventions
@@ -117,7 +118,7 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES ik_service
-  CATKIN_DEPENDS geometry_msgs message_generation roscpp rospy std_msgs ur_kinematics
+  CATKIN_DEPENDS geometry_msgs message_generation roscpp rospy std_msgs ur_kinematics tf2_geometry_msgs
 #  DEPENDS system_lib
 )
 
