@@ -1,6 +1,6 @@
 # ECSE473 Modern Robotic Programming Laboratory 4
 
-The project directory structure is in this way as mentioned in Laboratory description:
+This project was developed as part of ECSE 473: Modern Robotic Programming – Laboratory 4, which focused on implementing an Inverse Kinematics (IK) Service using ROS Noetic for the UR10 robotic arm. The objective was to create a custom ROS service that receives a target pose and returns all valid IK solutions using the ur_kinematics package. The project includes both the service and client nodes, demonstrates integration of ROS services, and supports both automated and manual testing via rosservice.
 
 ```
   ik_service
